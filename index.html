@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>宮崎旅行ガイド</title>
+  <style>
+    :root {
+      --bg: #fffaf0;
+      --card: #ffffff;
+      --text: #263238;
+      --muted: #667085;
+      --accent: #ff9f1c;
+      --blue: #2ec4b6;
+      --green: #6ab04c;
+      --shadow: 0 12px 30px rgba(38, 50, 56, 0.12);
+      --radius: 22px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(46, 196, 182, .20), transparent 34%),
+        radial-gradient(circle at top right, rgba(255, 159, 28, .20), transparent 34%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    header {
+      padding: 34px 18px 22px;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(46, 196, 182, .14);
+      color: #087f73;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(28px, 8vw, 44px);
+      letter-spacing: .03em;
+    }
+
+    .lead {
+      margin: 10px auto 0;
+      max-width: 620px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .tabs {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding: 12px 14px;
+      background: rgba(255, 250, 240, .86);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(38, 50, 56, .08);
+    }
+
+    .tabs a {
+      flex: 0 0 auto;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 800;
+      font-size: 14px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: #fff;
+      box-shadow: 0 4px 12px rgba(38, 50, 56, .08);
+      white-space: nowrap;
+    }
+
+    main {
+      width: min(980px, 100%);
+      margin: 0 auto;
+      padding: 18px;
+    }
+
+    section {
+      margin: 22px 0 36px;
+      scroll-margin-top: 76px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 23px;
+    }
+
+    .count {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      position: relative;
+      overflow: hidden;
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(38, 50, 56, .06);
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 6px;
+      background: linear-gradient(90deg, var(--blue), var(--accent));
+    }
+
+    .tag {
+      display: inline-block;
+      margin-bottom: 8px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: rgba(255, 159, 28, .14);
+      color: #9b5700;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .card h3 {
+      margin: 0 0 5px;
+      font-size: 19px;
+    }
+
+    .stars {
+      margin-bottom: 8px;
+      color: #f59f00;
+      letter-spacing: 1px;
+      font-size: 14px;
+    }
+
+    .memo {
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .actions {
+      display: flex;
+      gap: 9px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .btn {
+      appearance: none;
+      border: 0;
+      border-radius: 999px;
+      padding: 9px 12px;
+      text-decoration: none;
+      background: var(--text);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .btn.secondary {
+      background: rgba(46, 196, 182, .15);
+      color: #087f73;
+    }
+
+    .checked {
+      opacity: .72;
+      transform: scale(.99);
+    }
+
+    .checked .btn.secondary {
+      background: rgba(106, 176, 76, .18);
+      color: #2f7d32;
+    }
+
+    .note-box {
+      margin-top: 20px;
+      padding: 16px;
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .7);
+      border: 1px dashed rgba(38, 50, 56, .20);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 28px 18px 38px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="badge">🌴 MIYAZAKI TRIP</div>
+    <h1>宮崎旅行ガイド</h1>
+    <p class="lead">グルメ・観光・雨の日候補をざっくり保存。気になったらMap、行ったらチェック。</p>
+  </header>
+
+  <nav class="tabs" aria-label="カテゴリ">
+    <a href="#gourmet">🍗 グルメ</a>
+    <a href="#sightseeing">📸 観光</a>
+    <a href="#rainy">☔ 雨の日</a>
+    <a href="#souvenir">🎁 お土産</a>
+  </nav>
+
+  <main>
+    <section id="gourmet">
+      <div class="section-title">
+        <h2>🍗 グルメ</h2>
+        <span class="count">宮崎らしさ優先</span>
+      </div>
+      <div class="grid">
+        <article class="card"><span class="tag">チキン南蛮</span><h3>味のおぐら</h3><div class="stars">★★★★★</div><p class="memo">宮崎来たら一回は食べたい王道。タルタルまで含めて旅行の味。</p><div class="actions"><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=%E5%91%B3%E3%81%AE%E3%81%8A%E3%81%90%E3%82%89%20%E5%AE%AE%E5%B4%8E">Map</a><button class="btn secondary" onclick="toggleDone(this)">行った</button></div></article>
+        <article class="card"><span class="tag">地鶏</span><h3>ぐんけい</h3><div class="stars">★★★★★</div><p class="memo">炭火焼・たたき系。タンパク質も取れるし、宮崎感つよい。</p><div class="actions"><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=%E3%81%90%E3%82%93%E3%81%91%E3%81%84%20%E5%AE%AE%E5%B4%8E">Map</a><button class="btn secondary" onclick="toggleDone(this)">行った</button></div></article>
+        <article class="card"><span class="tag">締め</span><h3>釜揚げうどん</h3><div class="stars">★★★★☆</div><p class="memo">夜の締め候補。重乃井・織田薪あたりをチェック。</p><div class="actions"><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=%E9%87%9C%E6%8F%9A%E3%81%92%E3%81%86%E3%81%A9%E3%82%93%20%E5%AE%AE%E5%B4%8E">Map</a><button class="btn secondary" onclick="toggleDone(this)">行った</button></div></article>
+        <article class="card"><span class="tag">辛麺</span><h3>桝元</h3><div class="stars">★★★★☆</div><p class="memo">辛いもの欲が来たら。こんにゃく麺にすると罪悪感ちょい減り。</p><div class="actions"><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=%E6%A1%9D%E5%85%83%20%E5%AE%AE%E5%B4%8E">Map</a><button class="btn secondary" onclick="toggleDone(this)">行った</button></div></article>
+        <article class="card"><span class="tag">肉</span><h3>宮崎牛</h3><div class="stars">★★★★★</div><p class="memo">余裕あれば一食だけ豪華に。ミヤチク・幸加園あたり候補。</p><div class="actions"><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=%E5%AE%AE%E5%B4%8E%E7%89%9B%20%E5%AE%AE%E5%B4%8E%E5%B8%82">Map</a><button class="btn secondary" onclick="toggleDone(this)">行った</button></div></article>
+      </div>
+    </section>
+
+    <section id="sightseeing">
+      <div class="section-title">
+        <h2>📸 観光</h2>
+        <span class="count">海沿い最高</span>
+      </div>
+      <div class="grid">
+        <article class="card"><span class="tag">神社</span><h3>青島神社</h3><div class="stars">★★★★★</div><p class="memo">鬼の洗濯板とセット。宮崎っぽい南国感を一番感じられそう。</p><div class="actions"><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=%E9%9D%92%E5%B3%B6%E7%A5%9E%E7%A4%BE">Map</a><button class="btn secondary" onclick="toggleDone(this)">行った</button></div></article>
+        <article class="card"><span class="tag">海</span><h3>堀切峠</h3><div class="stars">★★★★☆</div><p class="memo">ドライブで寄ると気持ちよさそう。晴れたら優先度高め。</p><div class="actions"><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=%E5%A0%80%E5%88%87%E5%B3%A0">Map</a><button class="btn secondary" onclick="toggleDone(this)">行った</button></div></article>
+        <article class="card"><span class="tag">モアイ</span><h3>サンメッセ日南</h3><div class="stars">★★★★☆</div><p class="memo">写真ネタとして強い。天気が良い日のほうが満足度高そう。</p><div class="actions"><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=%E3%82%B5%E3%83%B3%E3%83%A1%E3%83%83%E3%82%BB%E6%97%A5%E5%8D%97">Map</a><button class="btn secondary" onclick="toggleDone(this)">行った</button></div></article>
+        <article class="card"><span class="tag">洞窟神社</span><h3>鵜戸神宮</h3><div class="stars">★★★★★</div><p class="memo">崖×海×神社でかなり非日常。日南方面に行くならセット。</p><div class="actions"><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=%E9%B5%9C%E6%88%B8%E7%A5%9E%E5%AE%AE">Map</a><button class="btn secondary" onclick="toggleDone(this)">行った</button></div></article>
+        <article class="card"><span class="tag">絶景</span><h3>高千穂峡</h3><div class="stars">★★★★★</div><p class="memo">時間があるならラスボス。移動時間だけ要確認。</p><div class="actions"><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=%E9%AB%98%E5%8D%83%E7%A9%82%E5%B3%A1">Map</a><button class="btn secondary" onclick="toggleDone(this)">行った</button></div></article>
+      </div>
+    </section>
+
+    <section id="rainy">
+      <div class="section-title">
+        <h2>☔ 雨の日</h2>
+        <span class="count">逃げ場リスト</span>
+      </div>
+      <div class="grid">
+        <article class="card"><span class="tag">買い物</span><h3>イオンモール宮崎</h3><div class="stars">★★★★☆</div><p class="memo">ご飯も買い物もできる安全地帯。雨の日の時間調整に便利。</p><div class="actions"><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=%E3%82%A4%E3%82%AA%E3%83%B3%E3%83%A2%E3%83%BC%E3%83%AB%E5%AE%AE%E5%B4%8E">Map</a><button class="btn secondary" onclick="toggleDone(this)">行った</button></div></article>
+        <article class="card"><span class="tag">室内</span><h3>宮崎科学技術館</h3><div class="stars">★★★☆☆</div><p class="memo">プラネタリウムあり。雨で観光が潰れたときの候補。</p><div class="actions"><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=%E5%AE%AE%E5%B4%8E%E7%A7%91%E5%AD%A6%E6%8A%80%E8%A1%93%E9%A4%A8">Map</a><button class="btn secondary" onclick="toggleDone(this)">行った</button></div></article>
+        <article class="card"><span class="tag">温泉</span><h3>シーガイア周辺</h3><div class="stars">★★★★☆</div><p class="memo">ホテル・温泉・カフェでゆっくり。雨の日でも旅行感が残る。</p><div class="actions"><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=%E3%82%B7%E3%83%BC%E3%82%AC%E3%82%A4%E3%82%A2%20%E5%AE%AE%E5%B4%8E%20%E6%B8%A9%E6%B3%89">Map</a><button class="btn secondary" onclick="toggleDone(this)">行った</button></div></article>
+      </div>
+    </section>
+
+    <section id="souvenir">
+      <div class="section-title">
+        <h2>🎁 お土産</h2>
+        <span class="count">帰りに買う</span>
+      </div>
+      <div class="grid">
+        <article class="card"><span class="tag">甘い</span><h3>チーズ饅頭</h3><div class="stars">★★★★★</div><p class="memo">宮崎土産の定番。自分用にも会社用にも良さそう。</p><div class="actions"><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=%E3%83%81%E3%83%BC%E3%82%BA%E9%A5%85%E9%A0%AD%20%E5%AE%AE%E5%B4%8E">Map</a><button class="btn secondary" onclick="toggleDone(this)">買った</button></div></article>
+        <article class="card"><span class="tag">甘い</span><h3>なんじゃこら大福</h3><div class="stars">★★★★☆</div><p class="memo">名前が強い。話のネタにもなるし食べてみたい枠。</p><div class="actions"><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=%E3%81%AA%E3%82%93%E3%81%98%E3%82%83%E3%81%93%E3%82%89%E5%A4%A7%E7%A6%8F%20%E5%AE%AE%E5%B4%8E">Map</a><button class="btn secondary" onclick="toggleDone(this)">買った</button></div></article>
+        <article class="card"><span class="tag">しょっぱい</span><h3>鶏の炭火焼</h3><div class="stars">★★★★★</div><p class="memo">家でも宮崎気分。俊と食べる用にもよさそう。</p><div class="actions"><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=%E9%B6%8F%E3%81%AE%E7%82%AD%E7%81%AB%E7%84%BC%20%E5%AE%AE%E5%B4%8E%20%E5%9C%9F%E7%94%A3">Map</a><button class="btn secondary" onclick="toggleDone(this)">買った</button></div></article>
+        <article class="card"><span class="tag">フルーツ</span><h3>日向夏・マンゴー系</h3><div class="stars">★★★★☆</div><p class="memo">ゼリー・ラングドシャ・ジュース系。軽めのお土産に。</p><div class="actions"><a class="btn" target="_blank" href="https://www.google.com/maps/search/?api=1&query=%E5%AE%AE%E5%B4%8E%20%E6%97%A5%E5%90%91%E5%A4%8F%20%E3%83%9E%E3%83%B3%E3%82%B4%E3%83%BC%20%E5%9C%9F%E7%94%A3">Map</a><button class="btn secondary" onclick="toggleDone(this)">買った</button></div></article>
+      </div>
+
+      <div class="note-box">
+        メモ：旅行中は「水多め・タンパク質意識・全部ざっくり記録」でOK。宮崎グルメはちゃんと楽しむ！
+      </div>
+    </section>
+  </main>
+
+  <footer>🌴 宮崎を満喫する用メモサイト</footer>
+
+  <script>
+    function toggleDone(button) {
+      const card = button.closest('.card');
+      card.classList.toggle('checked');
+      button.textContent = card.classList.contains('checked') ? '済み！' : (button.textContent.includes('買') ? '買った' : '行った');
+    }
+  </script>
+</body>
+</html>
