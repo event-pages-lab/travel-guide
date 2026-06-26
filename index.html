@@ -50,13 +50,18 @@
       max-width: 760px;
       margin: auto;
     }
-
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
     section {
       background: white;
       margin-bottom: 18px;
       padding: 14px;
       border-radius: 14px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      scroll-margin-top: 120px;
     }
 
     h2 {
@@ -106,141 +111,212 @@
       font-size: 13px;
       color: #666;
     }
+
+    details {
+  margin-top: 4px;
+  }
+
+    summary {
+      cursor: pointer;
+      font-size: 20px;
+      font-weight: bold;
+      list-style: none;
+      padding: 4px 0;
+    }
+    
+    summary::-webkit-details-marker {
+      display: none;
+    }
+    
+    summary::before {
+      content: "▶ ";
+      color: #16a085;
+    }
+    
+    details[open] summary::before {
+      content: "▼ ";
+    }
+    
+    details ul,
+    details h3,
+    details details {
+      margin-top: 12px;
+    }
   </style>
 </head>
 
 <body>
-  <header>
-    <h1>🌴 宮崎旅行ガイド</h1>
-    <nav>
-      <a href="#city">市内</a>
-      <a href="#nichinan">日南</a>
-      <a href="#takachiho">高千穂</a>
-      <a href="#toi">都井岬</a>
-      <a href="#gourmet">グルメ</a>
-      <a href="#souvenir">お土産</a>
-      <a href="#rain">雨の日</a>
-    </nav>
-  </header>
 
-  <main>
+<header>
+  <h1>🌴 宮崎旅行ガイド</h1>
 
-    <section id="city">
-      <h2>📍 宮崎市内・近場観光</h2>
-      <ul>
-        <li>青島神社 <a class="map" href="https://www.google.com/maps/search/?api=1&query=青島神社" target="_blank">Map</a></li>
-        <li>青島 <a class="map" href="https://www.google.com/maps/search/?api=1&query=青島 宮崎" target="_blank">Map</a></li>
-        <li>鬼の洗濯板 <a class="map" href="https://www.google.com/maps/search/?api=1&query=鬼の洗濯板 宮崎" target="_blank">Map</a></li>
-        <li>宮崎神宮 <a class="map" href="https://www.google.com/maps/search/?api=1&query=宮崎神宮" target="_blank">Map</a></li>
-        <li>平和台公園 <a class="map" href="https://www.google.com/maps/search/?api=1&query=平和台公園 宮崎" target="_blank">Map</a></li>
-        <li>フローランテ宮崎 <a class="map" href="https://www.google.com/maps/search/?api=1&query=フローランテ宮崎" target="_blank">Map</a></li>
-        <li>シーガイア <a class="map" href="https://www.google.com/maps/search/?api=1&query=シーガイア 宮崎" target="_blank">Map</a></li>
-      </ul>
-    </section>
+  <nav>
+    <a href="#city">市内</a>
+    <a href="#nichinan">日南</a>
+    <a href="#takachiho">高千穂</a>
+    <a href="#toi">都井岬</a>
+    <a href="#gourmet">グルメ</a>
+    <a href="#souvenir">お土産</a>
+    <a href="#rain">雨の日</a>
+  </nav>
+</header>
 
-    <section id="nichinan">
-      <h2>🌊 日南方面</h2>
-      <ul>
-        <li>堀切峠 <a class="map" href="https://www.google.com/maps/search/?api=1&query=堀切峠 宮崎" target="_blank">Map</a></li>
-        <li>道の駅フェニックス <a class="map" href="https://www.google.com/maps/search/?api=1&query=道の駅フェニックス 宮崎" target="_blank">Map</a></li>
-        <li>サンメッセ日南 <a class="map" href="https://www.google.com/maps/search/?api=1&query=サンメッセ日南" target="_blank">Map</a></li>
-        <li>鵜戸神宮 <a class="map" href="https://www.google.com/maps/search/?api=1&query=鵜戸神宮" target="_blank">Map</a></li>
-        <li>飫肥城下町 <a class="map" href="https://www.google.com/maps/search/?api=1&query=飫肥城下町" target="_blank">Map</a></li>
-        <li>飫肥城跡 <a class="map" href="https://www.google.com/maps/search/?api=1&query=飫肥城跡" target="_blank">Map</a></li>
-      </ul>
-    </section>
+<main>
 
-    <section id="takachiho">
-      <h2>⛰ 高千穂方面</h2>
-      <ul>
-        <li>高千穂峡 <a class="map" href="https://www.google.com/maps/search/?api=1&query=高千穂峡" target="_blank">Map</a></li>
-        <li>真名井の滝 <a class="map" href="https://www.google.com/maps/search/?api=1&query=真名井の滝" target="_blank">Map</a></li>
-        <li>高千穂峡ボート乗り場 <a class="map" href="https://www.google.com/maps/search/?api=1&query=高千穂峡 ボート乗り場" target="_blank">Map</a></li>
-        <li>高千穂神社 <a class="map" href="https://www.google.com/maps/search/?api=1&query=高千穂神社" target="_blank">Map</a></li>
-        <li>天岩戸神社 <a class="map" href="https://www.google.com/maps/search/?api=1&query=天岩戸神社" target="_blank">Map</a></li>
-        <li>天安河原 <a class="map" href="https://www.google.com/maps/search/?api=1&query=天安河原" target="_blank">Map</a></li>
-      </ul>
-    </section>
+<section id="city">
+<details open>
+<summary>📍 宮崎市内・近場観光</summary>
 
-    <section id="toi">
-      <h2>🐎 都井岬方面</h2>
-      <ul>
-        <li>都井岬 <a class="map" href="https://www.google.com/maps/search/?api=1&query=都井岬" target="_blank">Map</a></li>
-        <li>都井岬灯台 <a class="map" href="https://www.google.com/maps/search/?api=1&query=都井岬灯台" target="_blank">Map</a></li>
-        <li>御崎馬 <a class="map" href="https://www.google.com/maps/search/?api=1&query=御崎馬 都井岬" target="_blank">Map</a></li>
-      </ul>
-    </section>
+<ul>
+<li>青島神社 <a class="map" href="https://www.google.com/maps/search/?api=1&query=青島神社" target="_blank">Map</a></li>
+<li>青島 <a class="map" href="https://www.google.com/maps/search/?api=1&query=青島 宮崎" target="_blank">Map</a></li>
+<li>鬼の洗濯板 <a class="map" href="https://www.google.com/maps/search/?api=1&query=鬼の洗濯板 宮崎" target="_blank">Map</a></li>
+<li>宮崎神宮 <a class="map" href="https://www.google.com/maps/search/?api=1&query=宮崎神宮" target="_blank">Map</a></li>
+<li>平和台公園 <a class="map" href="https://www.google.com/maps/search/?api=1&query=平和台公園 宮崎" target="_blank">Map</a></li>
+<li>フローランテ宮崎 <a class="map" href="https://www.google.com/maps/search/?api=1&query=フローランテ宮崎" target="_blank">Map</a></li>
+<li>シーガイア <a class="map" href="https://www.google.com/maps/search/?api=1&query=シーガイア 宮崎" target="_blank">Map</a></li>
+</ul>
 
-    <section id="gourmet">
-      <h2>🍽 グルメ</h2>
+</details>
+</section>
 
-      <h3>🍗 チキン南蛮</h3>
-      <ul>
-        <li>味のおぐら 本店 <a class="map" href="https://www.google.com/maps/search/?api=1&query=味のおぐら 本店 宮崎" target="_blank">Map</a></li>
-        <li>おぐら 瀬頭店 <a class="map" href="https://www.google.com/maps/search/?api=1&query=おぐら 瀬頭店 宮崎" target="_blank">Map</a></li>
-        <li>クレイトンハウス <a class="map" href="https://www.google.com/maps/search/?api=1&query=クレイトンハウス 宮崎" target="_blank">Map</a></li>
-      </ul>
+<section id="nichinan">
+<details>
+<summary>🌊 日南方面</summary>
 
-      <h3>🥟 宮崎餃子</h3>
-      <ul>
-        <li>ギョーザ専門店 黒兵衛 <a class="map" href="https://www.google.com/maps/search/?api=1&query=ギョーザ専門店 黒兵衛 宮崎" target="_blank">Map</a></li>
-        <li>黒兵衛 中央通り店 <a class="map" href="https://www.google.com/maps/search/?api=1&query=黒兵衛 中央通り店 宮崎" target="_blank">Map</a></li>
-        <li>丸鐵餃子 <a class="map" href="https://www.google.com/maps/search/?api=1&query=丸鐵餃子 宮崎" target="_blank">Map</a></li>
-        <li>ぎょうざの丸岡 宮崎店 <a class="map" href="https://www.google.com/maps/search/?api=1&query=ぎょうざの丸岡 宮崎店" target="_blank">Map</a></li>
-        <li>BOOZA <a class="map" href="https://www.google.com/maps/search/?api=1&query=BOOZA 宮崎 餃子" target="_blank">Map</a></li>
-      </ul>
+<ul>
+<li>堀切峠 <a class="map" href="https://www.google.com/maps/search/?api=1&query=堀切峠 宮崎" target="_blank">Map</a></li>
+<li>道の駅フェニックス <a class="map" href="https://www.google.com/maps/search/?api=1&query=道の駅フェニックス 宮崎" target="_blank">Map</a></li>
+<li>サンメッセ日南 <a class="map" href="https://www.google.com/maps/search/?api=1&query=サンメッセ日南" target="_blank">Map</a></li>
+<li>鵜戸神宮 <a class="map" href="https://www.google.com/maps/search/?api=1&query=鵜戸神宮" target="_blank">Map</a></li>
+<li>飫肥城下町 <a class="map" href="https://www.google.com/maps/search/?api=1&query=飫肥城下町" target="_blank">Map</a></li>
+<li>飫肥城跡 <a class="map" href="https://www.google.com/maps/search/?api=1&query=飫肥城跡" target="_blank">Map</a></li>
+</ul>
 
-      <h3>🐔 地鶏</h3>
-      <ul>
-        <li>ぐんけい 本店隠蔵 <a class="map" href="https://www.google.com/maps/search/?api=1&query=ぐんけい 本店隠蔵 宮崎" target="_blank">Map</a></li>
-        <li>丸万焼鳥 本店 <a class="map" href="https://www.google.com/maps/search/?api=1&query=丸万焼鳥 本店 宮崎" target="_blank">Map</a></li>
-      </ul>
+</details>
+</section>
 
-      <h3>🥩 宮崎牛</h3>
-      <ul>
-        <li>ミヤチク <a class="map" href="https://www.google.com/maps/search/?api=1&query=ミヤチク 宮崎" target="_blank">Map</a></li>
-        <li>焼肉の幸加園 <a class="map" href="https://www.google.com/maps/search/?api=1&query=焼肉の幸加園 宮崎" target="_blank">Map</a></li>
-      </ul>
+<section id="takachiho">
+<details>
+<summary>⛰ 高千穂方面</summary>
 
-      <h3>🍜 辛麺・うどん</h3>
-      <ul>
-        <li>元祖辛麺屋 桝元 中央通店 <a class="map" href="https://www.google.com/maps/search/?api=1&query=元祖辛麺屋 桝元 中央通店 宮崎" target="_blank">Map</a></li>
-        <li>重乃井 <a class="map" href="https://www.google.com/maps/search/?api=1&query=重乃井 宮崎" target="_blank">Map</a></li>
-        <li>戸隠 本店 <a class="map" href="https://www.google.com/maps/search/?api=1&query=戸隠 本店 宮崎" target="_blank">Map</a></li>
-      </ul>
+<ul>
+<li>高千穂峡 <a class="map" href="https://www.google.com/maps/search/?api=1&query=高千穂峡" target="_blank">Map</a></li>
+<li>真名井の滝 <a class="map" href="https://www.google.com/maps/search/?api=1&query=真名井の滝" target="_blank">Map</a></li>
+<li>高千穂峡ボート乗り場 <a class="map" href="https://www.google.com/maps/search/?api=1&query=高千穂峡 ボート乗り場" target="_blank">Map</a></li>
+<li>高千穂神社 <a class="map" href="https://www.google.com/maps/search/?api=1&query=高千穂神社" target="_blank">Map</a></li>
+<li>天岩戸神社 <a class="map" href="https://www.google.com/maps/search/?api=1&query=天岩戸神社" target="_blank">Map</a></li>
+<li>天安河原 <a class="map" href="https://www.google.com/maps/search/?api=1&query=天安河原" target="_blank">Map</a></li>
+</ul>
 
-      <h3>🍰 カフェ・スイーツ</h3>
-      <ul>
-        <li>フルーツ大野 <a class="map" href="https://www.google.com/maps/search/?api=1&query=フルーツ大野 宮崎" target="_blank">Map</a></li>
-        <li>お菓子の日高 本店 <a class="map" href="https://www.google.com/maps/search/?api=1&query=お菓子の日高 本店 宮崎" target="_blank">Map</a></li>
-      </ul>
-    </section>
+</details>
+</section>
 
-    <section id="souvenir">
-      <h2>🎁 お土産</h2>
-      <ul>
-        <li>チーズ饅頭</li>
-        <li>なんじゃこら大福</li>
-        <li>鶏炭火焼</li>
-        <li>マキシマム</li>
-        <li>マンゴー系お菓子</li>
-        <li>日向夏ゼリー</li>
-        <li>宮崎辛麺</li>
-        <li>飫肥天</li>
-        <li>ぎょうざの丸岡 冷凍餃子</li>
-      </ul>
-    </section>
+<section id="toi">
+<details>
+<summary>🐎 都井岬方面</summary>
 
-    <section id="rain">
-      <h2>☔ 雨の日候補</h2>
-      <ul>
-        <li>イオンモール宮崎 <a class="map" href="https://www.google.com/maps/search/?api=1&query=イオンモール宮崎" target="_blank">Map</a></li>
-        <li>宮崎科学技術館 <a class="map" href="https://www.google.com/maps/search/?api=1&query=宮崎科学技術館" target="_blank">Map</a></li>
-        <li>シーガイア周辺 <a class="map" href="https://www.google.com/maps/search/?api=1&query=シーガイア 宮崎" target="_blank">Map</a></li>
-        <li>温泉・スパ系を探す <a class="map" href="https://www.google.com/maps/search/?api=1&query=宮崎市 温泉 スパ" target="_blank">Map</a></li>
-      </ul>
-    </section>
+<ul>
+<li>都井岬 <a class="map" href="https://www.google.com/maps/search/?api=1&query=都井岬" target="_blank">Map</a></li>
+<li>都井岬灯台 <a class="map" href="https://www.google.com/maps/search/?api=1&query=都井岬灯台" target="_blank">Map</a></li>
+<li>御崎馬 <a class="map" href="https://www.google.com/maps/search/?api=1&query=御崎馬 都井岬" target="_blank">Map</a></li>
+</ul>
 
-  </main>
+</details>
+</section>
+
+<section id="gourmet">
+<details open>
+<summary>🍽 グルメ</summary>
+
+<details>
+<summary>🍗 チキン南蛮</summary>
+<ul>
+<li>味のおぐら 本店 <a class="map" href="https://www.google.com/maps/search/?api=1&query=味のおぐら 本店 宮崎" target="_blank">Map</a></li>
+<li>おぐら 瀬頭店 <a class="map" href="https://www.google.com/maps/search/?api=1&query=おぐら 瀬頭店 宮崎" target="_blank">Map</a></li>
+<li>クレイトンハウス <a class="map" href="https://www.google.com/maps/search/?api=1&query=クレイトンハウス 宮崎" target="_blank">Map</a></li>
+</ul>
+</details>
+
+<details>
+<summary>🥟 宮崎餃子</summary>
+<ul>
+<li>ギョーザ専門店 黒兵衛 <a class="map" href="https://www.google.com/maps/search/?api=1&query=ギョーザ専門店 黒兵衛 宮崎" target="_blank">Map</a></li>
+<li>黒兵衛 中央通り店 <a class="map" href="https://www.google.com/maps/search/?api=1&query=黒兵衛 中央通り店 宮崎" target="_blank">Map</a></li>
+<li>丸鐵餃子 <a class="map" href="https://www.google.com/maps/search/?api=1&query=丸鐵餃子 宮崎" target="_blank">Map</a></li>
+<li>ぎょうざの丸岡 宮崎店 <a class="map" href="https://www.google.com/maps/search/?api=1&query=ぎょうざの丸岡 宮崎店" target="_blank">Map</a></li>
+<li>BOOZA <a class="map" href="https://www.google.com/maps/search/?api=1&query=BOOZA 宮崎" target="_blank">Map</a></li>
+</ul>
+</details>
+
+<details>
+<summary>🐔 地鶏</summary>
+<ul>
+<li>ぐんけい 本店隠蔵 <a class="map" href="https://www.google.com/maps/search/?api=1&query=ぐんけい 本店隠蔵 宮崎" target="_blank">Map</a></li>
+<li>丸万焼鳥 本店 <a class="map" href="https://www.google.com/maps/search/?api=1&query=丸万焼鳥 本店 宮崎" target="_blank">Map</a></li>
+</ul>
+</details>
+
+<details>
+<summary>🥩 宮崎牛</summary>
+<ul>
+<li>ミヤチク <a class="map" href="https://www.google.com/maps/search/?api=1&query=ミヤチク 宮崎" target="_blank">Map</a></li>
+<li>焼肉の幸加園 <a class="map" href="https://www.google.com/maps/search/?api=1&query=焼肉の幸加園 宮崎" target="_blank">Map</a></li>
+</ul>
+</details>
+
+<details>
+<summary>🍜 辛麺・うどん</summary>
+<ul>
+<li>桝元 中央通店 <a class="map" href="https://www.google.com/maps/search/?api=1&query=桝元 中央通店 宮崎" target="_blank">Map</a></li>
+<li>重乃井 <a class="map" href="https://www.google.com/maps/search/?api=1&query=重乃井 宮崎" target="_blank">Map</a></li>
+<li>戸隠 本店 <a class="map" href="https://www.google.com/maps/search/?api=1&query=戸隠 本店 宮崎" target="_blank">Map</a></li>
+</ul>
+</details>
+
+<details>
+<summary>🍰 カフェ・スイーツ</summary>
+<ul>
+<li>フルーツ大野 <a class="map" href="https://www.google.com/maps/search/?api=1&query=フルーツ大野 宮崎" target="_blank">Map</a></li>
+<li>お菓子の日高 本店 <a class="map" href="https://www.google.com/maps/search/?api=1&query=お菓子の日高 本店 宮崎" target="_blank">Map</a></li>
+</ul>
+</details>
+
+</details>
+</section>
+
+<section id="souvenir">
+<details>
+<summary>🎁 お土産</summary>
+
+<ul>
+<li>チーズ饅頭</li>
+<li>なんじゃこら大福</li>
+<li>鶏炭火焼</li>
+<li>マキシマム</li>
+<li>マンゴー系お菓子</li>
+<li>日向夏ゼリー</li>
+<li>宮崎辛麺</li>
+<li>飫肥天</li>
+<li>ぎょうざの丸岡 冷凍餃子</li>
+</ul>
+
+</details>
+</section>
+
+<section id="rain">
+<details>
+<summary>☔ 雨の日</summary>
+
+<ul>
+<li>イオンモール宮崎 <a class="map" href="https://www.google.com/maps/search/?api=1&query=イオンモール宮崎" target="_blank">Map</a></li>
+<li>宮崎科学技術館 <a class="map" href="https://www.google.com/maps/search/?api=1&query=宮崎科学技術館" target="_blank">Map</a></li>
+<li>シーガイア <a class="map" href="https://www.google.com/maps/search/?api=1&query=シーガイア 宮崎" target="_blank">Map</a></li>
+</ul>
+
+</details>
+</section>
+
+</main>
 </body>
 </html>
